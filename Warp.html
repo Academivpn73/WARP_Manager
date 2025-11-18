@@ -117,18 +117,21 @@
       box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    .sidebar.mobile-hidden {
-      transform: translateX(-100%);
-      position: fixed;
-      height: 100%;
-      z-index: 99;
+    .close-menu {
+      display: none;
+      background: transparent;
+      border: none;
+      color: #eee;
+      font-size: 28px;
+      cursor: pointer;
+      padding: 5px;
+      margin-bottom: 20px;
+      width: 100%;
+      text-align: right;
     }
 
-    .sidebar.mobile-visible {
-      transform: translateX(0);
-      position: fixed;
-      height: 100%;
-      z-index: 99;
+    body.light-mode .close-menu {
+      color: #333;
     }
 
     .menu-item {
@@ -616,15 +619,21 @@
       }
 
       .sidebar {
-        transform: translateX(-100%);
         position: fixed;
+        right: 0;
+        top: 0;
         height: 100%;
         z-index: 99;
         width: 280px;
+        transform: translateX(100%);
       }
 
       .sidebar.mobile-visible {
         transform: translateX(0);
+      }
+
+      .close-menu {
+        display: block;
       }
 
       .content-area {
@@ -813,6 +822,7 @@
 
       .sidebar {
         width: 250px;
+        right: 0;
       }
 
       .menu-item {
@@ -833,7 +843,7 @@
     </div><button class="theme-toggle" id="theme-toggle">☀️ حالت روشن</button>
    </div>
    <div class="main-layout">
-    <nav class="sidebar" id="sidebar">
+    <nav class="sidebar" id="sidebar"><button class="close-menu" id="close-menu">✕</button>
      <div class="menu-item active" data-page="home">
       <svg class="menu-icon" viewbox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
       </svg><span>خانه</span>
@@ -863,7 +873,7 @@
      <section class="page-section active" id="home-page">
       <div class="welcome-card">
        <h1 class="welcome-title">به Academi WARP Manager خوش آمدید</h1>
-       <p class="welcome-text">این ابزار قدرتمند به شما امکان می‌دهد تا به راحتی IP های Cloudflare WARP و کانفیگ‌های WireGuard را دریافت کنید.</p>
+       <p class="welcome-text">این اب����ار قدرتمند به شما امکان می‌دهد تا به راحتی IP های Cloudflare WARP و کانفیگ‌های WireGuard را دریافت کنید.</p>
        <p class="welcome-text">WARP یک سرویس رایگان از Cloudflare است که به شما امکان می‌دهد با امنیت بالا و سرعت بهتر به اینترنت متصل شوید.</p>
        <p class="welcome-text">تمام IP ها و کانفیگ‌های تولید شده واقعی هستند و با پروتکل WireGuard کار می‌کنند.</p>
       </div>
@@ -1130,6 +1140,7 @@
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('overlay');
+    const closeMenu = document.getElementById('close-menu');
 
     menuItems.forEach(item => {
       item.addEventListener('click', () => {
@@ -1161,6 +1172,11 @@
     });
 
     overlay.addEventListener('click', () => {
+      sidebar.classList.remove('mobile-visible');
+      overlay.classList.remove('show');
+    });
+
+    closeMenu.addEventListener('click', () => {
       sidebar.classList.remove('mobile-visible');
       overlay.classList.remove('show');
     });
@@ -1606,5 +1622,5 @@ AllowedIPs = 0.0.0.0/0`;
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a090461c5369c0a',t:'MTc2MzQ4NTE1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a090b1b3168380a',t:'MTc2MzQ4NTQyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
