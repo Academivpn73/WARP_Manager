@@ -620,6 +620,7 @@
         position: fixed;
         height: 100%;
         z-index: 99;
+        width: 280px;
       }
 
       .sidebar.mobile-visible {
@@ -627,33 +628,196 @@
       }
 
       .content-area {
-        padding: 20px 15px;
+        padding: 15px 10px;
+        width: 100%;
       }
 
       .site-title {
-        font-size: 16px;
+        font-size: 14px;
       }
 
       .logo-img {
-        width: 35px;
-        height: 35px;
+        width: 32px;
+        height: 32px;
+      }
+
+      .top-header {
+        padding: 12px 15px;
+      }
+
+      .theme-toggle {
+        padding: 6px 12px;
+        font-size: 12px;
       }
 
       .feature-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
       }
 
       .welcome-title {
-        font-size: 22px;
+        font-size: 20px;
+      }
+
+      .welcome-text {
+        font-size: 14px;
       }
 
       .option-card {
-        padding: 20px;
+        padding: 15px;
+        margin-bottom: 15px;
+      }
+
+      .option-title {
+        font-size: 16px;
+      }
+
+      .input-group label {
+        font-size: 13px;
+      }
+
+      .input-group input,
+      .input-group select {
+        padding: 10px 12px;
+        font-size: 14px;
+      }
+
+      .button {
+        padding: 12px;
+        font-size: 14px;
+      }
+
+      .result-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px;
+        font-size: 12px;
+      }
+
+      .result-text {
+        width: 100%;
+        margin-bottom: 10px;
+        word-break: break-all;
       }
 
       .button-group {
         width: 100%;
         justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .copy-btn,
+      .download-btn {
+        font-size: 11px;
+        padding: 5px 10px;
+      }
+
+      .ping-badge {
+        font-size: 11px;
+        padding: 3px 8px;
+      }
+
+      .operator-badge {
+        font-size: 10px;
+        padding: 3px 6px;
+      }
+
+      .menu-item {
+        padding: 12px 15px;
+        font-size: 14px;
+      }
+
+      .menu-icon {
+        width: 18px;
+        height: 18px;
+      }
+
+      .feature-card {
+        padding: 15px;
+      }
+
+      .feature-icon {
+        width: 35px;
+        height: 35px;
+      }
+
+      .feature-title {
+        font-size: 16px;
+      }
+
+      .feature-desc {
+        font-size: 13px;
+      }
+
+      .tutorial-content h3 {
+        font-size: 16px;
+      }
+
+      .tutorial-content p,
+      .tutorial-content ol,
+      .tutorial-content ul {
+        font-size: 13px;
+      }
+
+      .results {
+        max-height: 300px;
+        padding: 15px;
+      }
+
+      .config-info {
+        margin-top: 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .site-title {
+        font-size: 12px;
+      }
+
+      .logo-img {
+        width: 28px;
+        height: 28px;
+      }
+
+      .theme-toggle {
+        padding: 5px 10px;
+        font-size: 11px;
+      }
+
+      .top-header {
+        padding: 10px 12px;
+      }
+
+      .welcome-title {
+        font-size: 18px;
+      }
+
+      .welcome-text {
+        font-size: 13px;
+      }
+
+      .option-title {
+        font-size: 15px;
+        flex-wrap: wrap;
+      }
+
+      .option-title svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .result-item {
+        font-size: 11px;
+        padding: 10px;
+      }
+
+      .sidebar {
+        width: 250px;
+      }
+
+      .menu-item {
+        padding: 10px 12px;
+        font-size: 13px;
       }
     }
   </style>
@@ -714,7 +878,7 @@
         <svg class="feature-icon" viewbox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
         </svg>
         <h3 class="feature-title">کانفیگ وایرگارد</h3>
-        <p class="feature-desc">تولید کانفیگ‌های WireGuard با پشتیبانی از اپراتورهای ایران و قابلیت دانلود</p>
+        <p class="feature-desc">تولید کانفیگ‌های WireGuard با پشتیبانی از اپراتورهای ایران �� قابلیت دانلود</p>
        </div>
        <div class="feature-card">
         <svg class="feature-icon" viewbox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
@@ -781,7 +945,7 @@
         </svg><span>کانفیگ وایرگارد</span>
        </div>
        <div class="input-group"><label for="config-count">تعداد کانفیگ:</label> <input type="number" id="config-count" min="1" max="10" value="3">
-       </div><button class="button" id="generate-config-btn">تولید کانفیگ</button>
+       </div><button class="button" id="generate-config-btn">تولید کان��یگ</button>
        <div class="loading" id="config-loading">
         <div class="spinner"></div> در حال تولید کانفیگ...
        </div>
@@ -851,12 +1015,12 @@
         </svg><span>آموزش استفاده از کلید WARP Plus</span>
        </div>
        <div class="tutorial-content">
-        <h3 style="color: #667eea; margin: 15px 0 10px 0;">🔹 کلید WARP Plus چیست؟</h3>
+        <h3 style="color: #667eea; margin: 15px 0 10px 0;">���� کلید WARP Plus چیست؟</h3>
         <p style="line-height: 1.8; margin-bottom: 15px;">کلید WARP Plus یک کد فعال‌سازی است که سرعت و حجم نامحدود به شما می‌دهد.</p>
         <h3 style="color: #667eea; margin: 15px 0 10px 0;">🔹 مراحل استفاده:</h3>
         <ol style="line-height: 2; margin-right: 20px;">
          <li><strong>مرحله 1:</strong> از بخش "WARP Plus کلید" یک کلید تولید کنید</li>
-         <li><strong>مرحله 2:</strong> کلید را کپی کنید (فرمت: xxxxxxxx-xxxxxxxx-xxxxxxxx)</li>
+         <li><strong>مرحله 2:</strong> کلید ��ا کپی کنید (فرمت: xxxxxxxx-xxxxxxxx-xxxxxxxx)</li>
          <li><strong>مرحله 3:</strong> اپلیکیشن رسمی 1.1.1.1 یا WARP را باز کنید</li>
          <li><strong>مرحله 4:</strong> به بخش تنظیمات بروید</li>
          <li><strong>مرحله 5:</strong> گزینه "Account" یا "حساب کاربری" را انتخاب کنید</li>
@@ -879,13 +1043,13 @@
        </div>
        <div class="tutorial-content">
         <h3 style="color: #667eea; margin: 15px 0 10px 0;">🔹 اکانت WARP چیست؟</h3>
-        <p style="line-height: 1.8; margin-bottom: 15px;">اکانت WARP یک اکانت کامل با تمام اطلاعات لازم برای اتصال دستی به شبکه WARP است. این اکانت شامل کلیدهای خصوصی، عمومی و IP های اختصاصی می‌باشد.</p>
+        <p style="line-height: 1.8; margin-bottom: 15px;">اکانت WARP یک ا��انت کامل با تمام اطلاعات لازم برای اتصال دستی به شبکه WARP است. این اکانت شامل کلیدهای خصوصی، عمومی و IP های اختصاصی می‌باشد.</p>
         <h3 style="color: #667eea; margin: 15px 0 10px 0;">🔹 اطلاعات اکانت شامل:</h3>
         <div style="background: #0f3460; padding: 15px; border-radius: 8px; margin: 10px 0;">
-         <p style="margin: 8px 0;"><strong style="color: #667eea;">Account ID:</strong> شناسه یکتای اکانت شما</p>
+         <p style="margin: 8px 0;"><strong style="color: #667eea;">Account ID:</strong> ����اسه یکتای اکانت شما</p>
          <p style="margin: 8px 0;"><strong style="color: #667eea;">Private Key:</strong> کلید خصوصی (برای فیلد PrivateKey در کانفیگ WireGuard)</p>
          <p style="margin: 8px 0;"><strong style="color: #667eea;">Public Key:</strong> کلید عمومی (برای فیلد PublicKey در کانفیگ WireGuard)</p>
-         <p style="margin: 8px 0;"><strong style="color: #667eea;">IPv4 Address:</strong> آدرس IPv4 اختصاصی شما (برای فیلد Address)</p>
+         <p style="margin: 8px 0;"><strong style="color: #667eea;">IPv4 Address:</strong> آدرس IPv4 اختصاصی شما (برای فیل�� Address)</p>
          <p style="margin: 8px 0;"><strong style="color: #667eea;">IPv6 Address:</strong> آدرس IPv6 اختصاصی شما (برای فیلد Address)</p>
          <p style="margin: 8px 0;"><strong style="color: #667eea;">Endpoint:</strong> آدرس سرور WARP (برای فیلد Endpoint)</p>
         </div>
@@ -894,7 +1058,7 @@
          <li><strong>مرحله 1:</strong> از بخش "اکانت WARP" یک اکانت تولید کنید</li>
          <li><strong>مرحله 2:</strong> تمام اطلاعات را کپی کنید</li>
          <li><strong>مرحله 3:</strong> برنامه WireGuard را باز کرده و "Create from scratch" را انتخاب کنید</li>
-         <li><strong>مرحله 4:</strong> در بخش <strong>[Interface]</strong> وارد کنید:</li>
+         <li><strong>مرحله 4:</strong> ��ر بخش <strong>[Interface]</strong> وارد کنید:</li>
         </ol>
         <div style="background: #0f3460; padding: 15px; border-radius: 8px; margin: 10px 0 10px 40px; font-family: 'Courier New', monospace; direction: ltr; text-align: left;">
          [Interface]<br>
@@ -927,15 +1091,15 @@
          <li><strong>کانفیگ آماده:</strong> فایل کامل و آماده - فقط Import کنید</li>
          <li><strong>اکانت WARP:</strong> اطلاعات جداگانه - خودتان کانفیگ بسازید</li>
          <li>اکانت WARP انعطاف بیشتری برای تنظیمات دستی دارد</li>
-         <li>مناسب کاربران پیشرفته که می‌خواهند کانفیگ سفارشی بسازند</li>
+         <li>مناسب کاربران ��یشرفته که می‌خواهند کانفیگ سفارشی بسازند</li>
         </ul>
        </div>
       </div>
       <div class="welcome-card">
        <h2 style="color: #667eea; margin-bottom: 15px;">💡 نکات مهم</h2>
        <ul style="line-height: 2; margin-right: 20px;">
-        <li>همیشه چند IP یا کانفیگ تولید کنید و بهترین را امتحان کنید</li>
-        <li>پینگ پایین‌تر = سرعت بیشتر</li>
+        <li>همیشه چند IP یا کانفیگ تولید کنی�� و بهترین را امتحان کنید</li>
+        <li>پینگ پایین‌تر = سرعت ��یشتر</li>
         <li>اگر اتصال قطع شد، IP یا کانفیگ جدید تولید کنید</li>
         <li>از VPN در کشورهای دارای محدودیت اینترنت استفاده کنید</li>
         <li>تمام IP ها و کانفیگ‌ها رایگان و نامحدود هستند</li>
@@ -984,14 +1148,31 @@
       });
     });
 
-    menuToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('mobile-visible');
-      overlay.classList.toggle('show');
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isVisible = sidebar.classList.contains('mobile-visible');
+      if (isVisible) {
+        sidebar.classList.remove('mobile-visible');
+        overlay.classList.remove('show');
+      } else {
+        sidebar.classList.add('mobile-visible');
+        overlay.classList.add('show');
+      }
     });
 
     overlay.addEventListener('click', () => {
       sidebar.classList.remove('mobile-visible');
       overlay.classList.remove('show');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+          sidebar.classList.remove('mobile-visible');
+          overlay.classList.remove('show');
+        }
+      }
     });
 
     // Theme Toggle
@@ -1425,5 +1606,5 @@ AllowedIPs = 0.0.0.0/0`;
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a08f45b0145380a',t:'MTc2MzQ4NDQ5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a090461c5369c0a',t:'MTc2MzQ4NTE1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
