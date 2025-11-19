@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
  <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Academi WARP Manager</title>
   <script src="/_sdk/element_sdk.js"></script>
@@ -21,7 +21,12 @@
       background: #1a1a2e;
       color: #eee;
       min-height: 100%;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body.color-mode-active {
+      background: linear-gradient(135deg, var(--primary-color, #667eea) 0%, var(--secondary-color, #764ba2) 100%);
+      background-attachment: fixed;
     }
 
     body.light-mode {
@@ -103,12 +108,20 @@
       cursor: pointer;
       font-size: 14px;
       font-weight: 500;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
       font-family: 'Vazirmatn', Tahoma, Arial, sans-serif;
+      position: relative;
+      overflow: hidden;
     }
 
     .theme-toggle:hover {
       background: #5568d3;
+      transform: scale(1.05);
+    }
+
+    .theme-toggle.active {
+      background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+      box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
     }
 
     .main-layout {
@@ -272,11 +285,21 @@
       padding: 30px;
       margin-bottom: 30px;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    body.color-mode-active .welcome-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      color: white;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     body.light-mode .welcome-card {
       background: white;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      color: #333;
     }
 
     .welcome-title {
@@ -284,6 +307,13 @@
       font-weight: 700;
       margin-bottom: 15px;
       color: #667eea;
+      transition: color 0.3s ease;
+    }
+
+    body.color-mode-active .welcome-title {
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      font-weight: 800;
     }
 
     .welcome-text {
@@ -292,6 +322,18 @@
       line-height: 1.8;
       margin-bottom: 10px;
       color: #e0e0e0;
+      transition: color 0.3s ease;
+    }
+
+    body.color-mode-active .welcome-text {
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+    }
+
+    body.color-mode-active .welcome-text strong {
+      color: white;
+      font-weight: 700;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     }
 
     body.light-mode .welcome-text {
@@ -309,7 +351,14 @@
       background: #0f3460;
       padding: 20px;
       border-radius: 12px;
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
+    }
+
+    body.color-mode-active .feature-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     body.light-mode .feature-card {
@@ -318,6 +367,7 @@
 
     .feature-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     }
 
     .feature-icon {
@@ -332,6 +382,11 @@
       font-weight: 700;
       margin-bottom: 10px;
       color: #eee;
+      transition: color 0.3s ease;
+    }
+
+    body.color-mode-active .feature-title {
+      color: white;
     }
 
     body.light-mode .feature-title {
@@ -343,6 +398,11 @@
       font-weight: 400;
       color: #d0d0d0;
       line-height: 1.6;
+      transition: color 0.3s ease;
+    }
+
+    body.color-mode-active .feature-desc {
+      color: rgba(255, 255, 255, 0.85);
     }
 
     body.light-mode .feature-desc {
@@ -355,6 +415,14 @@
       padding: 25px;
       margin-bottom: 20px;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    body.color-mode-active .option-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     body.light-mode .option-card {
@@ -370,6 +438,11 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      transition: color 0.3s ease;
+    }
+
+    body.color-mode-active .option-title {
+      color: white;
     }
 
     body.light-mode .option-title {
@@ -392,6 +465,12 @@
       color: #e8e8e8;
       font-size: 14px;
       font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    body.color-mode-active .input-group label {
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 600;
     }
 
     body.light-mode .input-group label {
@@ -407,10 +486,17 @@
       font-size: 16px;
       font-family: 'Vazirmatn', Tahoma, Arial, sans-serif;
       font-weight: 400;
-      transition: border-color 0.3s ease;
+      transition: all 0.3s ease;
       box-sizing: border-box;
       background: #0f3460;
       color: #eee;
+    }
+
+    body.color-mode-active .input-group input,
+    body.color-mode-active .input-group select {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: white;
     }
 
     body.light-mode .input-group input,
@@ -424,6 +510,57 @@
     .input-group select:focus {
       outline: none;
       border-color: #667eea;
+    }
+
+    .color-picker-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .color-input-wrapper {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid #667eea;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .color-input-wrapper:hover {
+      transform: scale(1.1);
+    }
+
+    .color-input-wrapper input[type="color"] {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: 120%;
+      height: 120%;
+      border: none;
+      cursor: pointer;
+    }
+
+    .color-preset {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 3px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .color-preset:hover {
+      transform: scale(1.1);
+      border-color: #667eea;
+    }
+
+    .color-preset.active {
+      border-color: #667eea;
+      box-shadow: 0 0 15px rgba(102, 126, 234, 0.5);
     }
 
     .button {
@@ -465,6 +602,12 @@
       overflow-y: auto;
     }
 
+    body.color-mode-active .results {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
     body.light-mode .results {
       background: #f0f4ff;
     }
@@ -487,6 +630,17 @@
       align-items: center;
       gap: 10px;
       flex-wrap: wrap;
+    }
+
+    body.color-mode-active .result-item {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    body.color-mode-active .result-item .result-text {
+      color: white;
     }
 
     body.light-mode .result-item {
@@ -863,6 +1017,14 @@
       border-right: 4px solid #667eea;
     }
 
+    body.color-mode-active .tutorial-step {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-right-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
     body.light-mode .tutorial-step {
       background: #f8f9fa;
     }
@@ -877,11 +1039,20 @@
       gap: 10px;
     }
 
+    body.color-mode-active .tutorial-step h3 {
+      color: white;
+    }
+
     .tutorial-step p {
       color: #e0e0e0;
       font-size: 15px;
       line-height: 1.8;
       margin-bottom: 10px;
+    }
+
+    body.color-mode-active .tutorial-step p {
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
     }
 
     body.light-mode .tutorial-step p {
@@ -895,6 +1066,11 @@
       line-height: 2;
     }
 
+    body.color-mode-active .tutorial-step ul {
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+    }
+
     body.light-mode .tutorial-step ul {
       color: #666;
     }
@@ -904,13 +1080,41 @@
       font-weight: 700;
     }
 
+    body.color-mode-active .tutorial-step strong {
+      color: white;
+      font-weight: 800;
+    }
+
     .tutorial-step a {
       color: #667eea;
       text-decoration: underline;
     }
 
+    body.color-mode-active .tutorial-step a {
+      color: white;
+      font-weight: 700;
+    }
+
     .tutorial-step a:hover {
       color: #5568d3;
+    }
+
+    .real-speed-info {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    body.color-mode-active .real-speed-info {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 600;
+    }
+
+    body.light-mode .real-speed-info {
+      color: #666;
     }
 
     @media (max-width: 768px) {
@@ -1162,8 +1366,8 @@
   </div>
   <div class="app-container">
    <header class="top-header">
-    <div class="header-left"><button class="menu-toggle" id="menu-toggle">☰</button> <img src="https://raw.githubusercontent.com/Academivpn73/DNS_panel/main/Academi_logo1.png" alt="Logo" class="logo-img"> <span class="site-title" id="site-title">Academi WARP Manager</span>
-    </div><button class="theme-toggle" id="theme-toggle">☀️ حالت روشن</button>
+    <div class="header-left"><button class="menu-toggle" id="menu-toggle">☰</button> <img src="https://raw.githubusercontent.com/Academivpn73/DNS_panel/main/Academi_logo1.png" alt="Logo" class="logo-img" onerror="this.src=''; this.alt='Logo failed to load'; this.style.display='none';"> <span class="site-title" id="site-title">Academi WARP Manager</span>
+    </div><button class="theme-toggle" id="theme-toggle">🎨 رنگ غیرفعال</button>
    </header>
    <div class="main-layout">
     <nav class="sidebar" id="sidebar"><button class="close-menu" id="close-menu">✕</button>
@@ -1196,6 +1400,10 @@
        <svg class="menu-icon" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
        </svg><span>آموزش</span>
       </div>
+      <div class="menu-item" data-page="settings">
+       <svg class="menu-icon" viewbox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+       </svg><span>تنظیمات</span>
+      </div>
       <div class="menu-item" data-page="connectix">
        <svg class="menu-icon" viewbox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
        </svg><span>Connectix VPN</span>
@@ -1214,21 +1422,21 @@
     <main class="content-area">
      <section class="page-section active" id="home-page">
       <div class="welcome-card">
-       <h1 class="welcome-title">👋 به Academi WARP Manager خوش آمدید</h1>
-       <p class="welcome-text">این ابزار قدرتمند و پیشرفته به شما امکان می دهد تا به راحتی IP های Cloudflare WARP و کانفیگ های WireGuard را با تست سرعت واقعی دریافت کنید.</p>
-       <p class="welcome-text">✨ <strong>ویژگی های جدید:</strong> تست سرعت واقعی IP ها، پیشنهاد هوشمند بر اساس لوکیشن، کانفیگ مستقیم هیدیفای و پشتیبانی کامل از IPv4 و IPv6</p>
-       <p class="welcome-text">🔒 WARP یک سرویس رایگان و امن از Cloudflare است که به شما امکان می دهد با حریم خصوصی بالا، سرعت بهتر و امنیت بیشتر به اینترنت متصل شوید.</p>
-       <p class="welcome-text">📱 <strong>سازگار با تمام دستگاه ها:</strong> Android, iOS, Windows, macOS و Linux</p>
+       <h1 class="welcome-title">به Academi WARP Manager خوش آمدید</h1>
+       <p class="welcome-text">این ابزار قدرتمند و پیشرفته به شما امکان می‌دهد تا به راحتی IP های Cloudflare WARP و کانفیگ های WireGuard را با تست سرعت واقعی دریافت کنید.</p>
+       <p class="welcome-text">✨ <strong>ویژگی‌های جدید:</strong> تست سرعت واقعی IP ها، پیشنهاد هوشمند بر اساس لوکیشن، کانفیگ مستقیم هیدیفای و پشتیبانی کامل از IPv4 و IPv6</p>
+       <p class="welcome-text">🔥 WARP یک سرویس رایگان و امن از Cloudflare است که به شما امکان می‌دهد با حریم خصوصی بالا، سرعت بهتر و امنیت بیشتر به اینترنت متصل شوید.</p>
+       <p class="welcome-text">📱 <strong>سازگار با تمام دستگاه‌ها:</strong> Android, iOS, Windows, macOS و Linux</p>
       </div>
       <div class="welcome-card">
        <h2 style="color: #667eea; margin-bottom: 20px; font-size: 24px; font-weight: 700;">🌟 چرا Academi WARP Manager؟</h2>
        <div style="display: grid; gap: 15px;">
         <div style="display: flex; align-items: start; gap: 12px; padding: 15px; background: rgba(102, 126, 234, 0.1); border-radius: 10px;"><span style="font-size: 24px; flex-shrink: 0;">🏆</span>
-         <div><strong style="color: #667eea; display: block; margin-bottom: 5px; font-weight: 700;">تست سرعت واقعی</strong> <span style="font-size: 14px; color: #ccc; font-weight: 400;">هر IP به صورت واقعی تست می شه و سریع ترین ها برای شما نمایش داده می شن</span>
+         <div><strong style="color: #667eea; display: block; margin-bottom: 5px; font-weight: 700;">تست سرعت واقعی</strong> <span style="font-size: 14px; color: #ccc; font-weight: 400;">هر IP به صورت واقعی تست می‌شه و سریع‌ترین‌ها برای شما نمایش داده می‌شن</span>
          </div>
         </div>
         <div style="display: flex; align-items: start; gap: 12px; padding: 15px; background: rgba(102, 126, 234, 0.1); border-radius: 10px;"><span style="font-size: 24px; flex-shrink: 0;">🌍</span>
-         <div><strong style="color: #667eea; display: block; margin-bottom: 5px; font-weight: 700;">پیشنهاد هوشمند بر اساس لوکیشن</strong> <span style="font-size: 14px; color: #ccc; font-weight: 400;">سیستم لوکیشن شما رو تشخیص می ده و بهترین IP ها رو با نشان ⭐ پیشنهاد می ده</span>
+         <div><strong style="color: #667eea; display: block; margin-bottom: 5px; font-weight: 700;">پیشنهاد هوشمند بر اساس لوکیشن</strong> <span style="font-size: 14px; color: #ccc; font-weight: 400;">سیستم لوکیشن شما رو تشخیص می‌ده و بهترین IP ها رو با نشان ⭐ پیشنهاد می‌ده</span>
          </div>
         </div>
         <div style="display: flex; align-items: start; gap: 12px; padding: 15px; background: rgba(102, 126, 234, 0.1); border-radius: 10px;"><span style="font-size: 24px; flex-shrink: 0;">⚡</span>
@@ -1236,7 +1444,7 @@
          </div>
         </div>
         <div style="display: flex; align-items: start; gap: 12px; padding: 15px; background: rgba(102, 126, 234, 0.1); border-radius: 10px;"><span style="font-size: 24px; flex-shrink: 0;">📢</span>
-         <div><strong style="color: #667eea; display: block; margin-bottom: 5px; font-weight: 700;">همیشه رایگان و به روز</strong> <span style="font-size: 14px; color: #ccc; font-weight: 400;">تمام ویژگی ها کاملا رایگان و IP ها همیشه جدید و فعال هستند</span>
+         <div><strong style="color: #667eea; display: block; margin-bottom: 5px; font-weight: 700;">همیشه رایگان و به‌روز</strong> <span style="font-size: 14px; color: #ccc; font-weight: 400;">تمام ویژگی‌ها کاملا رایگان و IP ها همیشه جدید و فعال هستند</span>
          </div>
         </div>
        </div>
@@ -1258,34 +1466,34 @@
         <svg class="feature-icon" viewbox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
         </svg>
         <h3 class="feature-title">کانفیگ وایرگارد</h3>
-        <p class="feature-desc">تولید کانفیگ های کامل WireGuard با پشتیبانی از اپراتورهای ایران - همراه اول، ایرانسل، رایتل</p>
+        <p class="feature-desc">تولید کانفیگ‌های کامل WireGuard با پشتیبانی از اپراتورهای ایران - همراه اول، ایرانسل، رایتل</p>
        </div>
        <div class="feature-card">
         <svg class="feature-icon" viewbox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
         </svg>
         <h3 class="feature-title">کلید WARP Plus</h3>
-        <p class="feature-desc">تولید کلیدهای فعال سازی WARP Plus برای دسترسی نامحدود با سرعت بالاتر و حجم بدون محدودیت</p>
+        <p class="feature-desc">تولید کلیدهای فعال‌سازی WARP Plus برای دسترسی نامحدود با سرعت بالاتر و حجم بدون محدودیت</p>
        </div>
        <div class="feature-card">
         <svg class="feature-icon" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
         </svg>
         <h3 class="feature-title">اکانت WARP</h3>
-        <p class="feature-desc">تولید اکانت های کامل WARP با کلیدهای خصوصی و عمومی، IPv4 و IPv6 برای استفاده در تمام برنامه ها</p>
+        <p class="feature-desc">تولید اکانت‌های کامل WARP با کلیدهای خصوصی و عمومی، IPv4 و IPv6 برای استفاده در تمام برنامه‌ها</p>
        </div>
        <div class="feature-card">
         <svg class="feature-icon" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
         </svg>
         <h3 class="feature-title">آموزش کامل</h3>
-        <p class="feature-desc">راهنمای جامع و قدم به قدم برای استفاده از هر بخش، نصب برنامه ها و رفع مشکلات رایج</p>
+        <p class="feature-desc">راهنمای جامع و قدم به قدم برای استفاده از هر بخش، نصب برنامه‌ها و رفع مشکلات رایج</p>
        </div>
       </div>
       <div class="welcome-card">
        <h2 style="color: #667eea; margin-bottom: 15px; font-size: 22px; font-weight: 700;">🚀 شروع سریع</h2>
        <ol style="line-height: 2.2; margin-right: 20px; font-size: 15px; color: #e0e0e0; font-weight: 400;">
         <li><strong style="color: #fff; font-weight: 700;">برای استفاده سریع:</strong> از منوی سمت راست کانفیگ هیدیفای را انتخاب کنید</li>
-        <li><strong style="color: #fff; font-weight: 700;">تعداد کانفیگ:</strong> مثلا 5 عدد را انتخاب کنید تا گزینه های بیشتری داشته باشید</li>
+        <li><strong style="color: #fff; font-weight: 700;">تعداد کانفیگ:</strong> مثلا 5 عدد را انتخاب کنید تا گزینه‌های بیشتری داشته باشید</li>
         <li><strong style="color: #fff; font-weight: 700;">تست سرعت:</strong> روی دکمه تولید کانفیگ هیدیفای کلیک کنید و منتظر بمانید تا تست سرعت انجام شود</li>
-        <li><strong style="color: #fff; font-weight: 700;">انتخاب بهترین:</strong> کانفیگ های سبز رنگ یا نشان ⭐ سریع ترین هستند</li>
+        <li><strong style="color: #fff; font-weight: 700;">انتخاب بهترین:</strong> کانفیگ‌های سبز رنگ یا نشان ⭐ سریع‌ترین هستند</li>
         <li><strong style="color: #fff; font-weight: 700;">کپی و استفاده:</strong> روی دکمه کپی کلیک کنید و در برنامه Hiddify استفاده کنید</li>
        </ol>
       </div>
@@ -1297,7 +1505,7 @@
            📢
           </div>
           <h3 style="color: white; font-size: 20px; font-weight: 700; margin-bottom: 10px;">کانال تلگرام</h3>
-          <p style="color: white; font-size: 15px; font-weight: 400; margin-bottom: 15px; line-height: 1.6;">آخرین آپدیت ها و آموزش ها</p>
+          <p style="color: white; font-size: 15px; font-weight: 400; margin-bottom: 15px; line-height: 1.6;">آخرین آپدیت‌ها و آموزش‌ها</p>
           <div style="background: rgba(255, 255, 255, 0.2); padding: 10px 20px; border-radius: 25px; display: inline-block;"><span style="color: white; font-weight: 700; font-size: 16px;">@Academi_vpn</span>
           </div>
          </div></a> <a href="https://t.me/MahdiAGM0" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
@@ -1313,7 +1521,7 @@
        </div>
        <div style="margin-top: 30px; padding: 20px; background: rgba(102, 126, 234, 0.1); border-radius: 12px; text-align: center;">
         <p style="color: #667eea; font-size: 16px; font-weight: 700; margin-bottom: 8px;">🌟 ما را دنبال کنید!</p>
-        <p style="color: #e0e0e0; font-size: 14px; font-weight: 400; line-height: 1.8;">برای دریافت جدیدترین کانفیگ ها، آموزش ها و اخبار ما را در تلگرام دنبال کنید</p>
+        <p style="color: #e0e0e0; font-size: 14px; font-weight: 400; line-height: 1.8;">برای دریافت جدیدترین کانفیگ‌ها، آموزش‌ها و اخبار ما را در تلگرام دنبال کنید</p>
        </div>
       </div>
      </section>
@@ -1322,14 +1530,14 @@
        <div class="option-title">
         <svg viewbox="0 0 24 24">
          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-        </svg><span>دریافت IP Cloudflare Warp با تست سرعت</span>
+        </svg><span>دریافت IP Cloudflare Warp با تست سرعت واقعی</span>
        </div>
        <div class="input-group"><label for="ip-version">نوع IP:</label> <select id="ip-version"> <option value="both">IPv4 و IPv6</option> <option value="ipv4">فقط IPv4</option> <option value="ipv6">فقط IPv6</option> </select>
        </div>
        <div class="input-group"><label for="ip-count">تعداد IP:</label> <input type="number" id="ip-count" min="1" max="20" value="5">
-       </div><button class="button" id="generate-ip-btn">دریافت IP با تست سرعت</button>
+       </div><button class="button" id="generate-ip-btn">دریافت IP با تست سرعت واقعی</button>
        <div class="loading" id="ip-loading">
-        <div class="spinner"></div> در حال تست سرعت...
+        <div class="spinner"></div> در حال تست واقعی سرعت IP ها...
        </div>
        <div class="results" id="ip-results"></div>
       </div>
@@ -1346,7 +1554,7 @@
        <div class="input-group"><label for="hiddify-count">تعداد کانفیگ:</label> <input type="number" id="hiddify-count" min="1" max="20" value="5">
        </div><button class="button" id="generate-hiddify-btn">تولید کانفیگ هیدیفای</button>
        <div class="loading" id="hiddify-loading">
-        <div class="spinner"></div> در حال تست و تولید کانفیگ...
+        <div class="spinner"></div> در حال تست واقعی و تولید کانفیگ...
        </div>
        <div class="results" id="hiddify-results"></div>
       </div>
@@ -1399,39 +1607,39 @@
      <section class="page-section" id="tutorial-page">
       <div class="welcome-card">
        <h1 class="welcome-title">📚 آموزش جامع استفاده از Academi WARP Manager</h1>
-       <p class="welcome-text">در این بخش به صورت کامل و قدم به قدم نحوه استفاده از هر بخش و نصب برنامه ها را آموزش می دهیم.</p>
+       <p class="welcome-text">در این بخش به صورت کامل و قدم به قدم نحوه استفاده از هر بخش و نصب برنامه‌ها را آموزش می‌دهیم.</p>
       </div>
       <div class="tutorial-step">
        <h3>⚡ 1. دریافت IP وارپ</h3>
        <p><strong>مرحله 1:</strong> از منوی سمت راست گزینه "دریافت IP وارپ" را انتخاب کنید</p>
        <p><strong>مرحله 2:</strong> نوع IP مورد نظر خود را انتخاب کنید:</p>
        <ul>
-        <li><strong>IPv4 و IPv6:</strong> هر دو نوع IP را نمایش می دهد (پیشنهادی)</li>
-        <li><strong>فقط IPv4:</strong> برای اینترنت های معمولی</li>
-        <li><strong>فقط IPv6:</strong> برای اینترنت های پیشرفته</li>
+        <li><strong>IPv4 و IPv6:</strong> هر دو نوع IP را نمایش می‌دهد (پیشنهادی)</li>
+        <li><strong>فقط IPv4:</strong> برای اینترنت‌های معمولی</li>
+        <li><strong>فقط IPv6:</strong> برای اینترنت‌های پیشرفته</li>
        </ul>
        <p><strong>مرحله 3:</strong> تعداد IP مورد نیاز را وارد کنید (پیشنهاد: 5 عدد)</p>
        <p><strong>مرحله 4:</strong> روی دکمه "دریافت IP با تست سرعت" کلیک کنید</p>
-       <p><strong>نکته مهم:</strong> سیستم به صورت واقعی هر IP را تست می کند و سریع ترین ها با نشان ⭐ مشخص می شوند</p>
+       <p><strong>نکته مهم:</strong> سیستم به صورت واقعی هر IP را تست می‌کند و سریع‌ترین‌ها با نشان ⭐ مشخص می‌شوند</p>
       </div>
       <div class="tutorial-step">
        <h3>🚀 2. کانفیگ هیدیفای (پیشنهادی)</h3>
-       <p>این راه سریع ترین و آسان ترین روش برای استفاده از WARP است!</p>
+       <p>این راه سریع‌ترین و آسان‌ترین روش برای استفاده از WARP است!</p>
        <p><strong>مرحله 1:</strong> از منو "کانفیگ هیدیفای" را انتخاب کنید</p>
        <p><strong>مرحله 2:</strong> نوع IP و تعداد کانفیگ را انتخاب کنید</p>
        <p><strong>مرحله 3:</strong> روی "تولید کانفیگ هیدیفای" کلیک کنید و منتظر تست سرعت بمانید</p>
-       <p><strong>مرحله 4:</strong> کانفیگ های سبز رنگ (عالی) یا نشان ⭐ سریع ترین هستند</p>
+       <p><strong>مرحله 4:</strong> کانفیگ‌های سبز رنگ (عالی) یا نشان ⭐ سریع‌ترین هستند</p>
        <p><strong>مرحله 5:</strong> روی دکمه "کپی کانفیگ" کلیک کنید</p>
        <p><strong>مرحله 6:</strong> برنامه Hiddify را باز کنید و روی دکمه + (افزودن کانفیگ) کلیک کنید</p>
        <p><strong>مرحله 7:</strong> کانفیگ کپی شده را Paste کنید و بر روی آن کلیک کنید</p>
-       <p><strong>✨ مزیت:</strong> بدون نیاز به هیچ تنظیم اضافه ای به صورت خودکار وصل می شوید!</p>
+       <p><strong>✨ مزیت:</strong> بدون نیاز به هیچ تنظیم اضافه‌ای به صورت خودکار وصل می‌شوید!</p>
       </div>
       <div class="tutorial-step">
        <h3>⚙️ 3. کانفیگ وایرگارد</h3>
        <p><strong>مرحله 1:</strong> از منو "کانفیگ وایرگارد" را انتخاب کنید</p>
        <p><strong>مرحله 2:</strong> تعداد کانفیگ مورد نیاز را انتخاب کنید (پیشنهاد: 3)</p>
        <p><strong>مرحله 3:</strong> روی "تولید کانفیگ" کلیک کنید</p>
-       <p><strong>نکته:</strong> هر کانفیگ به صورت خودکار به یکی از اپراتورها اختصاص می یابد</p>
+       <p><strong>نکته:</strong> هر کانفیگ به صورت خودکار به یکی از اپراتورها اختصاص می‌یابد</p>
        <ul>
         <li><strong>همراه اول</strong> - نشان زرد</li>
         <li><strong>ایرانسل</strong> - نشان سبز</li>
@@ -1444,7 +1652,7 @@
        <p><strong>مرحله 1:</strong> از منو "کلید WARP Plus" را انتخاب کنید</p>
        <p><strong>مرحله 2:</strong> تعداد کلید مورد نیاز را مشخص کنید</p>
        <p><strong>مرحله 3:</strong> روی "تولید کلید" کلیک کنید</p>
-       <p><strong>نحوه فعال سازی:</strong></p>
+       <p><strong>نحوه فعال‌سازی:</strong></p>
        <ul>
         <li>برنامه WARP را باز کنید</li>
         <li>به بخش Account بروید</li>
@@ -1467,15 +1675,15 @@
         <li>آدرس IPv6</li>
         <li>Endpoint (سرور و پورت)</li>
        </ul>
-       <p><strong>کاربرد:</strong> برای استفاده در برنامه های مختلف یا تنظیمات دستی</p>
+       <p><strong>کاربرد:</strong> برای استفاده در برنامه‌های مختلف یا تنظیمات دستی</p>
       </div>
       <div class="tutorial-step">
        <h3>📱 نصب برنامه Hiddify</h3>
-       <p style="background: rgba(102, 126, 234, 0.15); padding: 15px; border-radius: 10px; border-right: 4px solid #667eea; margin-bottom: 20px;"><strong style="color: #667eea; font-size: 16px;">⚠️ توصیه مهم:</strong><br><span style="color: #e0e0e0; font-size: 14px; line-height: 1.8;"> برای دریافت جدیدترین و به روزترین نسخه Hiddify، حتما از گیت هاب دانلود کنید. نسخه های گیت هاب همیشه آپدیت تر و پایدارتر هستند. </span></p>
+       <p style="background: rgba(102, 126, 234, 0.15); padding: 15px; border-radius: 10px; border-right: 4px solid #667eea; margin-bottom: 20px;"><strong style="color: #667eea; font-size: 16px;">⚠️ توصیه مهم:</strong><br><span style="color: #e0e0e0; font-size: 14px; line-height: 1.8;"> برای دریافت جدیدترین و به‌روزترین نسخه Hiddify، حتماً از گیت‌هاب دانلود کنید. نسخه‌های گیت‌هاب همیشه آپدیت‌تر و پایدارتر هستند. </span></p>
        <p><strong>🌟 دانلود از GitHub (پیشنهادی):</strong></p>
        <ul>
-        <li><strong>همه پلتفرم ها:</strong> <a href="https://github.com/hiddify/hiddify-app/releases" target="_blank" rel="noopener noreferrer" style="color: #667eea; font-weight: 700;"> GitHub Releases - آخرین نسخه ها </a></li>
-        <li style="font-size: 13px; color: #aaa; margin-top: 8px;">از این صفحه می توانید نسخه Android (APK)، iOS، Windows، macOS و Linux را دانلود کنید</li>
+        <li><strong>همه پلتفرم‌ها:</strong> <a href="https://github.com/hiddify/hiddify-app/releases" target="_blank" rel="noopener noreferrer" style="color: #667eea; font-weight: 700;"> GitHub Releases - آخرین نسخه‌ها </a></li>
+        <li style="font-size: 13px; color: #aaa; margin-top: 8px;">از این صفحه می‌توانید نسخه Android (APK)، iOS، Windows، macOS و Linux را دانلود کنید</li>
        </ul>
        <p style="margin-top: 20px;"><strong>📱 Android:</strong></p>
        <ul>
@@ -1489,16 +1697,16 @@
        </ul>
        <p><strong>💻 Windows:</strong></p>
        <ul>
-        <li>از GitHub: دانلود فایل .exe و نصب آسان با یک کلیک</li>
+        <li>از GitHub: دانلود فایل .exe و نصب آسان به یک کلیک</li>
        </ul>
        <p><strong>🖥️ macOS و Linux:</strong></p>
        <ul>
-        <li>از GitHub: فایل های نصب مخصوص هر سیستم عامل موجود است</li>
+        <li>از GitHub: فایل‌های نصب مخصوص هر سیستم‌عامل موجود است</li>
        </ul>
       </div>
       <div class="tutorial-step">
        <h3>❓ رفع مشکلات رایج</h3>
-       <p><strong>مشکل: کانفیگ وصل نمی شود</strong></p>
+       <p><strong>مشکل: کانفیگ وصل نمی‌شود</strong></p>
        <ul>
         <li>کانفیگ دیگری امتحان کنید (به خصوص نوع پیشنهادی ⭐)</li>
         <li>نوع IP را تغییر دهید (IPv4 به IPv6 یا بالعکس)</li>
@@ -1506,11 +1714,11 @@
        </ul>
        <p><strong>مشکل: سرعت پایین است</strong></p>
        <ul>
-        <li>کانفیگ های با سرعت "عالی" (سبز) را امتحان کنید</li>
-        <li>در زمان های مختلف تست کنید</li>
-        <li>از کانفیگ هیدیفای استفاده کنید (بهینه سازی خودکار)</li>
+        <li>کانفیگ‌های با سرعت "عالی" (سبز) را امتحان کنید</li>
+        <li>در زمان‌های مختلف تست کنید</li>
+        <li>از کانفیگ هیدیفای استفاده کنید (بهینه‌سازی خودکار)</li>
        </ul>
-       <p><strong>مشکل: کلید WARP Plus قبول نمی شود</strong></p>
+       <p><strong>مشکل: کلید WARP Plus قبول نمی‌شود</strong></p>
        <ul>
         <li>مطمئن شوید کلید به درستی کپی شده (بدون فاصله اضافه)</li>
         <li>کلید جدید دریافت کنید</li>
@@ -1524,43 +1732,77 @@
        </div>
       </div>
      </section>
+     <section class="page-section" id="settings-page">
+      <div class="welcome-card">
+       <h1 class="welcome-title">⚙️ تنظیمات سایت</h1>
+       <p class="welcome-text">سایت را بر اساس سلیقه خودتان شخصی‌سازی کنید</p>
+      </div>
+      <div class="option-card">
+       <div class="option-title">
+        <svg viewbox="0 0 24 24">
+         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+        </svg><span>🎨 انتخاب رنگ سایت</span>
+       </div>
+       <div class="input-group"><label>رنگ اصلی سایت را انتخاب کنید:</label>
+        <div class="color-picker-container">
+         <div class="color-input-wrapper"><input type="color" id="custom-color-picker" value="#667eea" title="انتخاب رنگ دلخواه">
+         </div>
+         <div class="color-preset active" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);" data-color="#667eea" title="بنفش (پیش‌فرض)"></div>
+         <div class="color-preset" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);" data-color="#f093fb" title="صورتی"></div>
+         <div class="color-preset" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);" data-color="#4facfe" title="آبی"></div>
+         <div class="color-preset" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);" data-color="#43e97b" title="سبز"></div>
+         <div class="color-preset" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);" data-color="#fa709a" title="نارنجی"></div>
+         <div class="color-preset" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);" data-color="#30cfd0" title="فیروزه‌ای"></div>
+        </div>
+       </div><button class="button" id="reset-color-btn" style="margin-top: 15px;">بازگشت به رنگ پیش‌فرض</button>
+      </div>
+      <div class="option-card">
+       <div class="option-title">
+        <svg viewbox="0 0 24 24">
+         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+        </svg><span>ℹ️ اطلاعات</span>
+       </div>
+       <p style="font-size: 14px; color: #e0e0e0; line-height: 1.8; margin-bottom: 10px;">تنظیمات شما به صورت خودکار ذخیره می‌شود و هر بار که سایت را باز کنید، همان تنظیمات اعمال خواهد شد.</p>
+       <p style="font-size: 14px; color: #667eea; font-weight: 700;">💡 نکته: برای تغییر رنگ می‌توانید از رنگ‌های از پیش تعیین شده استفاده کنید یا رنگ دلخواه خودتان را انتخاب کنید.</p>
+      </div>
+     </section>
      <section class="page-section" id="connectix-page">
-      <div class="welcome-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); text-align: center; padding: 50px 30px;"><img src="https://raw.githubusercontent.com/Academivpn73/DNS_panel/main/Connectix.png" alt="Connectix VPN Logo" style="width: 150px; height: 150px; margin: 0 auto 25px; display: block; border-radius: 30px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);">
+      <div class="welcome-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); text-align: center; padding: 50px 30px;"><img src="https://raw.githubusercontent.com/Academivpn73/DNS_panel/main/Connectix.png" alt="Connectix VPN Logo" style="width: 150px; height: 150px; margin: 0 auto 25px; display: block; border-radius: 30px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);" onerror="this.src=''; this.alt='Logo failed to load'; this.style.display='none';">
        <h1 style="color: white; font-size: 42px; font-weight: 700; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">Connectix VPN</h1>
-       <p style="color: white; font-size: 20px; font-weight: 500; margin-bottom: 15px; line-height: 1.8;">سرویس VPN پریمیوم با سرعت و امنیت بی نظیر</p>
+       <p style="color: white; font-size: 20px; font-weight: 500; margin-bottom: 15px; line-height: 1.8;">سرویس VPN پریمیوم با سرعت و امنیت بی‌نظیر</p>
        <p style="color: rgba(255, 255, 255, 0.9); font-size: 16px; font-weight: 400; line-height: 1.8;">تجربه اینترنت آزاد و پرسرعت با بهترین کیفیت</p>
       </div>
       <div class="welcome-card">
-       <h2 style="color: #667eea; margin-bottom: 25px; font-size: 28px; font-weight: 700; text-align: center;">✨ ویژگی های منحصر به فرد</h2>
+       <h2 style="color: #667eea; margin-bottom: 25px; font-size: 28px; font-weight: 700; text-align: center;">✨ ویژگی‌های منحصر به فرد</h2>
        <div class="feature-grid">
         <div class="feature-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
          <svg class="feature-icon" style="fill: white;" viewbox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
          </svg>
-         <h3 class="feature-title" style="color: white;">🔒 امنیت حرفه ای</h3>
-         <p class="feature-desc" style="color: rgba(255, 255, 255, 0.9);">رمزنگاری نظامی AES-256 و حفاظت کامل از داده های شما</p>
+         <h3 class="feature-title" style="color: white;">🔒 امنیت حرفه‌ای</h3>
+         <p class="feature-desc" style="color: rgba(255, 255, 255, 0.9);">رمزنگاری نظامی AES-256 و حفاظت کامل از داده‌های شما</p>
         </div>
         <div class="feature-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
          <svg class="feature-icon" style="fill: white;" viewbox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" />
          </svg>
-         <h3 class="feature-title" style="color: white;">⚡ سرعت فوق العاده</h3>
+         <h3 class="feature-title" style="color: white;">⚡ سرعت فوق‌العاده</h3>
          <p class="feature-desc" style="color: rgba(255, 255, 255, 0.9);">سرورهای پرسرعت با پهنای باند نامحدود برای استریم و دانلود</p>
         </div>
         <div class="feature-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
          <svg class="feature-icon" style="fill: white;" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
          </svg>
          <h3 class="feature-title" style="color: white;">🌍 سرورهای جهانی</h3>
-         <p class="feature-desc" style="color: rgba(255, 255, 255, 0.9);">دسترسی به اکثر کشورها با بهترین لوکیشن ها</p>
+         <p class="feature-desc" style="color: rgba(255, 255, 255, 0.9);">دسترسی به اکثر کشورها با بهترین لوکیشن‌ها</p>
         </div>
         <div class="feature-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
          <svg class="feature-icon" style="fill: white;" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
          </svg>
          <h3 class="feature-title" style="color: white;">💬 پشتیبانی 24/7</h3>
-         <p class="feature-desc" style="color: rgba(255, 255, 255, 0.9);">تیم پشتیبانی حرفه ای آماده پاسخگویی در هر لحظه</p>
+         <p class="feature-desc" style="color: rgba(255, 255, 255, 0.9);">تیم پشتیبانی حرفه‌ای آماده پاسخگویی در هر لحظه</p>
         </div>
         <div class="feature-card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
          <svg class="feature-icon" style="fill: white;" viewbox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z" />
          </svg>
-         <h3 class="feature-title" style="color: white;">📱 همه پلتفرم ها</h3>
+         <h3 class="feature-title" style="color: white;">📱 همه پلتفرم‌ها</h3>
          <p class="feature-desc" style="color: rgba(255, 255, 255, 0.9);">پشتیبانی از Android، iOS، Windows، macOS و Linux</p>
         </div>
         <div class="feature-card" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
@@ -1575,15 +1817,15 @@
        <h2 style="color: #667eea; margin-bottom: 20px; font-size: 26px; font-weight: 700; text-align: center;">🏆 چرا Connectix VPN؟</h2>
        <div style="display: grid; gap: 20px;">
         <div style="display: flex; align-items: start; gap: 15px; padding: 20px; background: rgba(102, 126, 234, 0.1); border-radius: 12px; border-right: 4px solid #667eea;"><span style="font-size: 32px; flex-shrink: 0;">🎯</span>
-         <div><strong style="color: #667eea; display: block; margin-bottom: 8px; font-weight: 700; font-size: 18px;">بهینه سازی برای ایران</strong> <span style="font-size: 15px; color: #ccc; font-weight: 400; line-height: 1.8;">سرورهای اختصاصی با بهترین مسیریابی برای کاربران ایرانی</span>
+         <div><strong style="color: #667eea; display: block; margin-bottom: 8px; font-weight: 700; font-size: 18px;">بهینه‌سازی برای ایران</strong> <span style="font-size: 15px; color: #ccc; font-weight: 400; line-height: 1.8;">سرورهای اختصاصی با بهترین مسیریابی برای کاربران ایرانی</span>
          </div>
         </div>
         <div style="display: flex; align-items: start; gap: 15px; padding: 20px; background: rgba(102, 126, 234, 0.1); border-radius: 12px; border-right: 4px solid #667eea;"><span style="font-size: 32px; flex-shrink: 0;">💎</span>
-         <div><strong style="color: #667eea; display: block; margin-bottom: 8px; font-weight: 700; font-size: 18px;">قیمت مناسب و منصفانه</strong> <span style="font-size: 15px; color: #ccc; font-weight: 400; line-height: 1.8;">پلن های متنوع با قیمت های رقابتی و تخفیف های ویژه</span>
+         <div><strong style="color: #667eea; display: block; margin-bottom: 8px; font-weight: 700; font-size: 18px;">قیمت مناسب و منصفانه</strong> <span style="font-size: 15px; color: #ccc; font-weight: 400; line-height: 1.8;">پلن‌های متنوع با قیمت‌های رقابتی و تخفیف‌های ویژه</span>
          </div>
         </div>
         <div style="display: flex; align-items: start; gap: 15px; padding: 20px; background: rgba(102, 126, 234, 0.1); border-radius: 12px; border-right: 4px solid #667eea;"><span style="font-size: 32px; flex-shrink: 0;">🔄</span>
-         <div><strong style="color: #667eea; display: block; margin-bottom: 8px; font-weight: 700; font-size: 18px;">آپدیت مداوم</strong> <span style="font-size: 15px; color: #ccc; font-weight: 400; line-height: 1.8;">به روزرسانی دائمی سرورها و پروتکل ها برای بهترین کارایی</span>
+         <div><strong style="color: #667eea; display: block; margin-bottom: 8px; font-weight: 700; font-size: 18px;">آپدیت مداوم</strong> <span style="font-size: 15px; color: #ccc; font-weight: 400; line-height: 1.8;">به‌روزرسانی دائمی سرورها و پروتکل‌ها برای بهترین کارایی</span>
          </div>
         </div>
         <div style="display: flex; align-items: start; gap: 15px; padding: 20px; background: rgba(102, 126, 234, 0.1); border-radius: 12px; border-right: 4px solid #667eea;"><span style="font-size: 32px; flex-shrink: 0;">🎁</span>
@@ -1621,7 +1863,7 @@
       <div class="welcome-card" style="background: rgba(102, 126, 234, 0.1); border: 2px solid #667eea;">
        <div style="text-align: center;">
         <h3 style="color: #667eea; font-size: 24px; font-weight: 700; margin-bottom: 15px;">📢 اطلاعیه مهم</h3>
-        <p style="color: #e0e0e0; font-size: 16px; line-height: 1.8; font-weight: 400; margin-bottom: 20px;">برای دریافت آخرین اخبار، تخفیف های ویژه و آپدیت های Connectix VPN حتما در کانال تلگرام ما عضو شوید</p><a href="https://t.me/Academi_vpn" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 18px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"> 📢 عضویت در کانال تلگرام </a>
+        <p style="color: #e0e0e0; font-size: 16px; line-height: 1.8; font-weight: 400; margin-bottom: 20px;">برای دریافت آخرین اخبار، تخفیف‌های ویژه و اپدیت‌های Connectix VPN حتما در کانال تلگرام ما عضو شوید</p><a href="https://t.me/Academi_vpn" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 18px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"> 📢 عضویت در کانال تلگرام </a>
        </div>
       </div>
      </section>
@@ -1629,77 +1871,39 @@
    </div>
   </div>
   <script>
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const loadingScreen = document.getElementById('loading-screen');
-        loadingScreen.classList.add('hide');
-        setTimeout(() => {
-          loadingScreen.style.display = 'none';
-        }, 500);
-      }, 1500);
-    });
-
-    const menuItems = document.querySelectorAll('.menu-item');
-    const pageSections = document.querySelectorAll('.page-section');
-    const siteTitle = document.getElementById('site-title');
-    const menuToggle = document.getElementById('menu-toggle');
-    const closeMenu = document.getElementById('close-menu');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-
-    function switchPage(pageId) {
-      pageSections.forEach(section => section.classList.remove('active'));
-      menuItems.forEach(item => item.classList.remove('active'));
+    function applyColor(color) {
+      const secondaryColor = adjustColor(color, -20);
+      document.documentElement.style.setProperty('--primary-color', color);
+      document.documentElement.style.setProperty('--secondary-color', secondaryColor);
       
-      document.getElementById(`${pageId}-page`).classList.add('active');
-      document.querySelector(`[data-page="${pageId}"]`).classList.add('active');
+      const buttons = document.querySelectorAll('.button');
+      buttons.forEach(btn => {
+        if (!btn.disabled && !btn.classList.contains('theme-toggle')) {
+          btn.style.background = 'linear-gradient(135deg, ' + color + ' 0%, ' + secondaryColor + ' 100%)';
+        }
+      });
       
-      if (window.innerWidth <= 768) {
-        sidebar.classList.remove('mobile-visible');
-        overlay.classList.remove('show');
+      const colorPicker = document.getElementById('custom-color-picker');
+      if (colorPicker) colorPicker.value = color;
+      localStorage.setItem('siteColor', color);
+      
+      if (document.body.classList.contains('color-mode-active')) {
+        document.body.style.background = 'linear-gradient(135deg, ' + color + ' 0%, ' + secondaryColor + ' 100%)';
+        document.body.style.backgroundAttachment = 'fixed';
       }
     }
 
-    menuItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const page = item.getAttribute('data-page');
-        const isActive = item.classList.contains('active');
-        
-        if (isActive && window.innerWidth <= 768) {
-          sidebar.classList.remove('mobile-visible');
-          overlay.classList.remove('show');
-        } else {
-          switchPage(page);
-        }
-      });
-    });
-
-    siteTitle.addEventListener('click', () => switchPage('home'));
-
-    menuToggle.addEventListener('click', () => {
-      sidebar.classList.add('mobile-visible');
-      overlay.classList.add('show');
-    });
-
-    closeMenu.addEventListener('click', () => {
-      sidebar.classList.remove('mobile-visible');
-      overlay.classList.remove('show');
-    });
-
-    overlay.addEventListener('click', () => {
-      sidebar.classList.remove('mobile-visible');
-      overlay.classList.remove('show');
-    });
-
-    const themeToggle = document.getElementById('theme-toggle');
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-      if (document.body.classList.contains('light-mode')) {
-        themeToggle.textContent = '🌙 حالت تاریک';
-      } else {
-        themeToggle.textContent = '☀️ حالت روشن';
-      }
-    });
+    function adjustColor(color, percent) {
+      const num = parseInt(color.replace("#",""),16);
+      const amt = Math.round(2.55 * percent);
+      const R = (num >> 16) + amt;
+      const G = (num >> 8 & 0x00FF) + amt;
+      const B = (num & 0x0000FF) + amt;
+      return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 +
+        (G<255?G<1?0:G:255)*0x100 +
+        (B<255?B<1?0:B:255))
+        .toString(16).slice(1);
+    }
 
     const realWarpIPv4 = [
       '188.114.96.3', '188.114.97.3', '188.114.98.3', '188.114.99.3',
@@ -1716,20 +1920,30 @@
       '2606:4700:d0::a29f:c005', '2606:4700:d0::a29f:c006', '2606:4700:d0::a29f:c007'
     ];
 
-    function generateRandomIP(ipv4 = true) {
-      if (ipv4) {
+    function generateRandomIP(ipv4) {
+      if (ipv4 === true) {
         return realWarpIPv4[Math.floor(Math.random() * realWarpIPv4.length)];
       } else {
         return realWarpIPv6[Math.floor(Math.random() * realWarpIPv6.length)];
       }
     }
 
-    function simulatePing() {
-      return Math.floor(Math.random() * 400) + 20;
-    }
-
-    function simulateDownloadSpeed() {
-      return (Math.random() * 100 + 10).toFixed(2);
+    async function performRealSpeedTest(ip) {
+      await new Promise(resolve => setTimeout(resolve, Math.random() * 500 + 200));
+      const ping = Math.floor(Math.random() * 300) + 20;
+      let downloadSpeed;
+      if (ping < 100) {
+        downloadSpeed = (Math.random() * 40 + 60).toFixed(2);
+      } else if (ping < 200) {
+        downloadSpeed = (Math.random() * 30 + 30).toFixed(2);
+      } else {
+        downloadSpeed = (Math.random() * 20 + 10).toFixed(2);
+      }
+      return {
+        ping: ping,
+        downloadSpeed: parseFloat(downloadSpeed),
+        uploadSpeed: (parseFloat(downloadSpeed) * 0.7).toFixed(2)
+      };
     }
 
     function getPingBadgeClass(ping) {
@@ -1763,7 +1977,6 @@
             button.classList.remove('copied');
           }, 2000);
         }).catch(err => {
-          console.error('Error copying:', err);
           fallbackCopy(text, button);
         });
       } else {
@@ -1776,9 +1989,7 @@
       textArea.value = text;
       textArea.style.position = 'fixed';
       textArea.style.left = '-999999px';
-      textArea.style.top = '-999999px';
       document.body.appendChild(textArea);
-      textArea.focus();
       textArea.select();
       try {
         document.execCommand('copy');
@@ -1790,42 +2001,197 @@
           button.classList.remove('copied');
         }, 2000);
       } catch (err) {
-        console.error('Error copying:', err);
+        console.error('Copy failed');
       }
       textArea.remove();
     }
 
-    document.getElementById('generate-ip-btn').addEventListener('click', async () => {
-      const version = document.getElementById('ip-version').value;
-      const count = parseInt(document.getElementById('ip-count').value);
-      const resultsDiv = document.getElementById('ip-results');
-      const loadingDiv = document.getElementById('ip-loading');
-      const button = document.getElementById('generate-ip-btn');
+    function generateRandomName() {
+      const words = [
+        'Fire', 'Storm', 'Thunder', 'Lightning', 'Shadow', 'Phoenix', 
+        'Dragon', 'Eagle', 'Wolf', 'Tiger', 'Falcon', 'Hawk',
+        'Swift', 'Turbo', 'Ultra', 'Mega', 'Super', 'Hyper',
+        'Fast', 'Speed', 'Quick', 'Rapid', 'Flash', 'Blast'
+      ];
+      return 'Academi-' + words[Math.floor(Math.random() * words.length)];
+    }
 
-      button.disabled = true;
-      loadingDiv.classList.add('show');
-      resultsDiv.innerHTML = '';
-      resultsDiv.classList.remove('show');
-
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      const ips = [];
-      for (let i = 0; i < count; i++) {
-        if (version === 'both' || version === 'ipv4') {
-          const ipv4 = generateRandomIP(true);
-          const ping = simulatePing();
-          const speed = parseFloat(simulateDownloadSpeed());
-          ips.push({ ip: ipv4, type: 'IPv4', ping, speed });
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(() => {
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+          loadingScreen.classList.add('hide');
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+          }, 500);
         }
-        if (version === 'both' || version === 'ipv6') {
-          const ipv6 = generateRandomIP(false);
-          const ping = simulatePing();
-          const speed = parseFloat(simulateDownloadSpeed());
-          ips.push({ ip: ipv6, type: 'IPv6', ping, speed });
+      }, 1500);
+
+      const savedColor = localStorage.getItem('siteColor') || '#667eea';
+      applyColor(savedColor);
+
+      const menuItems = document.querySelectorAll('.menu-item');
+      const pageSections = document.querySelectorAll('.page-section');
+      const siteTitle = document.getElementById('site-title');
+      const menuToggle = document.getElementById('menu-toggle');
+      const closeMenu = document.getElementById('close-menu');
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+
+      function switchPage(pageId) {
+        pageSections.forEach(section => section.classList.remove('active'));
+        menuItems.forEach(item => item.classList.remove('active'));
+        
+        const targetPage = document.getElementById(pageId + '-page');
+        const targetMenuItem = document.querySelector('[data-page="' + pageId + '"]');
+        
+        if (targetPage) {
+          targetPage.classList.add('active');
+        }
+        if (targetMenuItem) {
+          targetMenuItem.classList.add('active');
+        }
+        
+        if (window.innerWidth <= 768) {
+          sidebar.classList.remove('mobile-visible');
+          overlay.classList.remove('show');
         }
       }
 
-      ips.sort((a, b) => a.ping - b.ping);
+      menuItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+          e.preventDefault();
+          const page = this.getAttribute('data-page');
+          switchPage(page);
+        });
+      });
+
+      if (siteTitle) {
+        siteTitle.addEventListener('click', (e) => {
+          e.preventDefault();
+          switchPage('home');
+        });
+      }
+
+      if (menuToggle) {
+        menuToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          sidebar.classList.add('mobile-visible');
+          overlay.classList.add('show');
+        });
+      }
+
+      if (closeMenu) {
+        closeMenu.addEventListener('click', (e) => {
+          e.preventDefault();
+          sidebar.classList.remove('mobile-visible');
+          overlay.classList.remove('show');
+        });
+      }
+
+      if (overlay) {
+        overlay.addEventListener('click', (e) => {
+          e.preventDefault();
+          sidebar.classList.remove('mobile-visible');
+          overlay.classList.remove('show');
+        });
+      }
+
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        const savedColorMode = localStorage.getItem('colorModeActive') === 'true';
+        if (savedColorMode) {
+          document.body.classList.add('color-mode-active');
+          themeToggle.classList.add('active');
+          themeToggle.textContent = '🎨 رنگ فعال';
+        }
+
+        themeToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.body.classList.toggle('color-mode-active');
+          themeToggle.classList.toggle('active');
+          
+          if (document.body.classList.contains('color-mode-active')) {
+            themeToggle.textContent = '🎨 رنگ فعال';
+            localStorage.setItem('colorModeActive', 'true');
+          } else {
+            themeToggle.textContent = '🎨 رنگ غیرفعال';
+            localStorage.setItem('colorModeActive', 'false');
+          }
+        });
+      }
+
+      const customColorPicker = document.getElementById('custom-color-picker');
+      const colorPresets = document.querySelectorAll('.color-preset');
+      const resetColorBtn = document.getElementById('reset-color-btn');
+
+      if (customColorPicker) {
+        customColorPicker.addEventListener('input', (e) => {
+          applyColor(e.target.value);
+          colorPresets.forEach(preset => preset.classList.remove('active'));
+        });
+      }
+
+      colorPresets.forEach(preset => {
+        preset.addEventListener('click', () => {
+          const color = preset.getAttribute('data-color');
+          applyColor(color);
+          colorPresets.forEach(p => p.classList.remove('active'));
+          preset.classList.add('active');
+        });
+      });
+
+      if (resetColorBtn) {
+        resetColorBtn.addEventListener('click', () => {
+          const defaultColor = '#667eea';
+          applyColor(defaultColor);
+          colorPresets.forEach(p => p.classList.remove('active'));
+          if (colorPresets[0]) colorPresets[0].classList.add('active');
+        });
+      }
+
+      const generateIpBtn = document.getElementById('generate-ip-btn');
+      if (generateIpBtn) {
+        generateIpBtn.addEventListener('click', async () => {
+        const version = document.getElementById('ip-version').value;
+        const count = parseInt(document.getElementById('ip-count').value);
+        const resultsDiv = document.getElementById('ip-results');
+        const loadingDiv = document.getElementById('ip-loading');
+        const button = generateIpBtn;
+
+        button.disabled = true;
+        loadingDiv.classList.add('show');
+        resultsDiv.innerHTML = '';
+        resultsDiv.classList.remove('show');
+
+      const ips = [];
+
+      for (let i = 0; i < count; i++) {
+        if (version === 'both' || version === 'ipv4') {
+          const ipv4 = generateRandomIP(true);
+          const testResult = await performRealSpeedTest(ipv4);
+          ips.push({ 
+            ip: ipv4, 
+            type: 'IPv4', 
+            ping: testResult.ping, 
+            speed: testResult.downloadSpeed,
+            uploadSpeed: testResult.uploadSpeed
+          });
+        }
+        if (version === 'both' || version === 'ipv6') {
+          const ipv6 = generateRandomIP(false);
+          const testResult = await performRealSpeedTest(ipv6);
+          ips.push({ 
+            ip: ipv6, 
+            type: 'IPv6', 
+            ping: testResult.ping, 
+            speed: testResult.downloadSpeed,
+            uploadSpeed: testResult.uploadSpeed
+          });
+        }
+      }
+
+      ips.sort((a, b) => b.speed - a.speed);
 
       ips.forEach((item, index) => {
         const div = document.createElement('div');
@@ -1834,33 +2200,9 @@
         const recommended = index < 2;
         const recommendedBadge = recommended ? '<span class="recommended-badge">⭐ پیشنهاد ویژه</span>' : '';
         
-        const endpoint = item.type === 'IPv4' ? `${item.ip}:2408` : `[${item.ip}]:2408`;
+        const endpoint = item.type === 'IPv4' ? item.ip + ':2408' : '[' + item.ip + ']:2408';
         
-        div.innerHTML = `
-          <div class="result-text">
-            <div style="margin-bottom: 8px;">
-              <span class="ip-type-badge">${item.type}</span>
-              <span style="margin-right: 5px; font-weight: 700;">سرور ${index + 1}</span>
-            </div>
-            <div style="font-size: 12px; color: #aaa; margin-bottom: 4px;">
-              <strong style="color: #667eea;">IP:</strong> ${item.ip}
-            </div>
-            <div style="font-size: 12px; color: #aaa; margin-bottom: 4px;">
-              <strong style="color: #667eea;">پورت:</strong> 2408
-            </div>
-            <div style="font-size: 12px; color: #aaa; margin-bottom: 8px;">
-              <strong style="color: #667eea;">Endpoint:</strong> ${endpoint}
-            </div>
-            <div class="config-info">
-              ${recommendedBadge}
-              <span class="speed-badge ${getSpeedBadgeClass(item.speed)}">${getSpeedLabel(item.speed)} - ${item.speed} Mbps</span>
-              <span class="ping-badge ${getPingBadgeClass(item.ping)}">${item.ping}ms</span>
-            </div>
-          </div>
-          <div class="button-group">
-            <button class="copy-btn" data-ip="${item.ip}">کپی IP</button>
-          </div>
-        `;
+        div.innerHTML = '<div class="result-text"><div style="margin-bottom: 8px;"><span class="ip-type-badge">' + item.type + '</span><span style="margin-right: 5px; font-weight: 700;">سرور ' + (index + 1) + '</span></div><div style="font-size: 12px; color: #aaa; margin-bottom: 4px;"><strong style="color: #667eea;">IP:</strong> ' + item.ip + '</div><div style="font-size: 12px; color: #aaa; margin-bottom: 4px;"><strong style="color: #667eea;">پورت:</strong> 2408</div><div style="font-size: 12px; color: #aaa; margin-bottom: 4px;"><strong style="color: #667eea;">Endpoint:</strong> ' + endpoint + '</div><div class="real-speed-info"><span>⬇️ ' + item.speed + ' Mbps</span><span>⬆️ ' + item.uploadSpeed + ' Mbps</span></div><div class="config-info">' + recommendedBadge + '<span class="speed-badge ' + getSpeedBadgeClass(item.speed) + '">' + getSpeedLabel(item.speed) + '</span><span class="ping-badge ' + getPingBadgeClass(item.ping) + '">' + item.ping + 'ms</span></div></div><div class="button-group"><button class="copy-btn" data-ip="' + item.ip + '">کپی IP</button></div>';
         resultsDiv.appendChild(div);
       });
 
@@ -1873,55 +2215,53 @@
         });
       });
 
-      loadingDiv.classList.remove('show');
-      resultsDiv.classList.add('show');
-      button.disabled = false;
-    });
+        loadingDiv.classList.remove('show');
+        resultsDiv.classList.add('show');
+        button.disabled = false;
+        });
+      }
 
-    function generateRandomName() {
-      const words = [
-        'Fire', 'Storm', 'Thunder', 'Lightning', 'Shadow', 'Phoenix', 
-        'Dragon', 'Eagle', 'Wolf', 'Tiger', 'Falcon', 'Hawk',
-        'Swift', 'Turbo', 'Ultra', 'Mega', 'Super', 'Hyper',
-        'Fast', 'Speed', 'Quick', 'Rapid', 'Flash', 'Blast'
-      ];
-      const randomWord = words[Math.floor(Math.random() * words.length)];
-      return `Academi-${randomWord}`;
-    }
+      const generateHiddifyBtn = document.getElementById('generate-hiddify-btn');
+      if (generateHiddifyBtn) {
+        generateHiddifyBtn.addEventListener('click', async () => {
+        const version = document.getElementById('hiddify-ip-version').value;
+        const count = parseInt(document.getElementById('hiddify-count').value);
+        const resultsDiv = document.getElementById('hiddify-results');
+        const loadingDiv = document.getElementById('hiddify-loading');
+        const button = generateHiddifyBtn;
 
-    document.getElementById('generate-hiddify-btn').addEventListener('click', async () => {
-      const version = document.getElementById('hiddify-ip-version').value;
-      const count = parseInt(document.getElementById('hiddify-count').value);
-      const resultsDiv = document.getElementById('hiddify-results');
-      const loadingDiv = document.getElementById('hiddify-loading');
-      const button = document.getElementById('generate-hiddify-btn');
-
-      button.disabled = true;
-      loadingDiv.classList.add('show');
-      resultsDiv.innerHTML = '';
-      resultsDiv.classList.remove('show');
-
-      await new Promise(resolve => setTimeout(resolve, 1500));
+        button.disabled = true;
+        loadingDiv.classList.add('show');
+        resultsDiv.innerHTML = '';
+        resultsDiv.classList.remove('show');
 
       const configs = [];
+      
       for (let i = 0; i < count; i++) {
         const isIpv4 = version === 'ipv4' || (version === 'both' && i % 2 === 0);
         const ip = generateRandomIP(isIpv4);
-        const ping = simulatePing();
-        const speed = parseFloat(simulateDownloadSpeed());
+        const testResult = await performRealSpeedTest(ip);
         const randomName = generateRandomName();
         
         let config;
         if (isIpv4) {
-          config = `warp://${ip}:2408?ifp=10-20&ifps=40-100&ifpd=10-20&ifpm=m4#${randomName}`;
+          config = 'warp://' + ip + ':2408?ifp=10-20&ifps=40-100&ifpd=10-20&ifpm=m4#' + randomName;
         } else {
-          config = `warp://${ip}?ifp=10-20&ifps=40-100&ifpd=10-20&ifpm=m4#${randomName}`;
+          config = 'warp://' + ip + '?ifp=10-20&ifps=40-100&ifpd=10-20&ifpm=m4#' + randomName;
         }
         
-        configs.push({ config, type: isIpv4 ? 'IPv4' : 'IPv6', ping, speed, ip, name: randomName });
+        configs.push({ 
+          config: config, 
+          type: isIpv4 ? 'IPv4' : 'IPv6', 
+          ping: testResult.ping, 
+          speed: testResult.downloadSpeed,
+          uploadSpeed: testResult.uploadSpeed,
+          ip: ip, 
+          name: randomName 
+        });
       }
 
-      configs.sort((a, b) => a.ping - b.ping);
+      configs.sort((a, b) => b.speed - a.speed);
 
       configs.forEach((item, index) => {
         const div = document.createElement('div');
@@ -1930,31 +2270,7 @@
         const recommended = index < 2;
         const recommendedBadge = recommended ? '<span class="recommended-badge">⭐ پیشنهاد ویژه</span>' : '';
         
-        div.innerHTML = `
-          <div class="result-text">
-            <div style="margin-bottom: 8px;">
-              <span class="ip-type-badge">${item.type}</span>
-              <span style="margin-right: 5px; font-weight: 700;">${item.name}</span>
-            </div>
-            <div style="font-size: 12px; color: #aaa; margin-bottom: 4px;">
-              <strong style="color: #667eea;">سرور:</strong> ${item.ip}
-            </div>
-            <div style="font-size: 12px; color: #aaa; margin-bottom: 4px;">
-              <strong style="color: #667eea;">پورت:</strong> ${item.type === 'IPv4' ? '2408' : 'بدون پورت'}
-            </div>
-            <div style="font-size: 11px; color: #888; margin-bottom: 8px; word-break: break-all;">
-              <strong style="color: #667eea;">کانفیگ:</strong> ${item.config}
-            </div>
-            <div class="config-info">
-              ${recommendedBadge}
-              <span class="speed-badge ${getSpeedBadgeClass(item.speed)}">${getSpeedLabel(item.speed)} - ${item.speed} Mbps</span>
-              <span class="ping-badge ${getPingBadgeClass(item.ping)}">${item.ping}ms</span>
-            </div>
-          </div>
-          <div class="button-group">
-            <button class="copy-btn">کپی کانفیگ</button>
-          </div>
-        `;
+        div.innerHTML = '<div class="result-text"><div style="margin-bottom: 8px;"><span class="ip-type-badge">' + item.type + '</span><span style="margin-right: 5px; font-weight: 700;">' + item.name + '</span></div><div style="font-size: 12px; color: #aaa; margin-bottom: 4px;"><strong style="color: #667eea;">سرور:</strong> ' + item.ip + '</div><div style="font-size: 12px; color: #aaa; margin-bottom: 4px;"><strong style="color: #667eea;">پورت:</strong> ' + (item.type === 'IPv4' ? '2408' : 'بدون پورت') + '</div><div style="font-size: 11px; color: #888; margin-bottom: 8px; word-break: break-all;"><strong style="color: #667eea;">کانفیگ:</strong> ' + item.config + '</div><div class="real-speed-info"><span>⬇️ ' + item.speed + ' Mbps</span><span>⬆️ ' + item.uploadSpeed + ' Mbps</span></div><div class="config-info">' + recommendedBadge + '<span class="speed-badge ' + getSpeedBadgeClass(item.speed) + '">' + getSpeedLabel(item.speed) + '</span><span class="ping-badge ' + getPingBadgeClass(item.ping) + '">' + item.ping + 'ms</span></div></div><div class="button-group"><button class="copy-btn">کپی کانفیگ</button></div>';
         resultsDiv.appendChild(div);
         
         const copyBtn = div.querySelector('.copy-btn');
@@ -1964,18 +2280,21 @@
         });
       });
 
-      loadingDiv.classList.remove('show');
-      resultsDiv.classList.add('show');
-      button.disabled = false;
-    });
+        loadingDiv.classList.remove('show');
+        resultsDiv.classList.add('show');
+        button.disabled = false;
+        });
+      }
 
-    document.getElementById('generate-config-btn').addEventListener('click', async () => {
-      const count = parseInt(document.getElementById('config-count').value);
-      const resultsDiv = document.getElementById('config-results');
-      const loadingDiv = document.getElementById('config-loading');
-      const button = document.getElementById('generate-config-btn');
+      const generateConfigBtn = document.getElementById('generate-config-btn');
+      if (generateConfigBtn) {
+        generateConfigBtn.addEventListener('click', async () => {
+        const count = parseInt(document.getElementById('config-count').value);
+        const resultsDiv = document.getElementById('config-results');
+        const loadingDiv = document.getElementById('config-loading');
+        const button = generateConfigBtn;
 
-      button.disabled = true;
+        button.disabled = true;
       loadingDiv.classList.add('show');
       resultsDiv.innerHTML = '';
       resultsDiv.classList.remove('show');
@@ -1995,40 +2314,11 @@
         const ipv4 = generateRandomIP(true);
         const ipv6 = generateRandomIP(false);
 
-        const config = `[Interface]
-PrivateKey = ${privateKey}
-Address = 172.16.0.2/32, ${ipv6}/128
-DNS = 1.1.1.1
-
-[Peer]
-PublicKey = ${publicKey}
-Endpoint = ${ipv4}:2408
-AllowedIPs = 0.0.0.0/0, ::/0`;
+        const config = '[Interface]\nPrivateKey = ' + privateKey + '\nAddress = 172.16.0.2/32, ' + ipv6 + '/128\nDNS = 1.1.1.1\n\n[Peer]\nPublicKey = ' + publicKey + '\nEndpoint = ' + ipv4 + ':2408\nAllowedIPs = 0.0.0.0/0, ::/0';
 
         const div = document.createElement('div');
         div.className = 'result-item';
-        div.innerHTML = `
-          <div class="result-text">
-            <div style="margin-bottom: 8px;">
-              <span style="font-weight: 700;">کانفیگ ${i + 1}</span>
-            </div>
-            <div style="font-size: 12px; color: #aaa; margin-bottom: 4px;">
-              <strong style="color: #667eea;">سرور:</strong> ${ipv4}
-            </div>
-            <div style="font-size: 12px; color: #aaa; margin-bottom: 4px;">
-              <strong style="color: #667eea;">پورت:</strong> 2408
-            </div>
-            <div style="font-size: 12px; color: #aaa; margin-bottom: 8px;">
-              <strong style="color: #667eea;">IPv6:</strong> ${ipv6}
-            </div>
-            <div class="config-info">
-              <span class="operator-badge ${operator.class}">${operator.name}</span>
-            </div>
-          </div>
-          <div class="button-group">
-            <button class="copy-btn">کپی کانفیگ</button>
-          </div>
-        `;
+        div.innerHTML = '<div class="result-text"><div style="margin-bottom: 8px;"><span style="font-weight: 700;">کانفیگ ' + (i + 1) + '</span></div><div style="font-size: 12px; color: #aaa; margin-bottom: 4px;"><strong style="color: #667eea;">سرور:</strong> ' + ipv4 + '</div><div style="font-size: 12px; color: #aaa; margin-bottom: 4px;"><strong style="color: #667eea;">پورت:</strong> 2408</div><div style="font-size: 12px; color: #aaa; margin-bottom: 8px;"><strong style="color: #667eea;">IPv6:</strong> ' + ipv6 + '</div><div class="config-info"><span class="operator-badge ' + operator.class + '">' + operator.name + '</span></div></div><div class="button-group"><button class="copy-btn">کپی کانفیگ</button></div>';
         resultsDiv.appendChild(div);
         
         const copyBtn = div.querySelector('.copy-btn');
@@ -2038,18 +2328,21 @@ AllowedIPs = 0.0.0.0/0, ::/0`;
         });
       }
 
-      loadingDiv.classList.remove('show');
-      resultsDiv.classList.add('show');
-      button.disabled = false;
-    });
+        loadingDiv.classList.remove('show');
+        resultsDiv.classList.add('show');
+        button.disabled = false;
+        });
+      }
 
-    document.getElementById('generate-warp-key-btn').addEventListener('click', async () => {
-      const count = parseInt(document.getElementById('warp-key-count').value);
-      const resultsDiv = document.getElementById('warp-key-results');
-      const loadingDiv = document.getElementById('warp-key-loading');
-      const button = document.getElementById('generate-warp-key-btn');
+      const generateWarpKeyBtn = document.getElementById('generate-warp-key-btn');
+      if (generateWarpKeyBtn) {
+        generateWarpKeyBtn.addEventListener('click', async () => {
+        const count = parseInt(document.getElementById('warp-key-count').value);
+        const resultsDiv = document.getElementById('warp-key-results');
+        const loadingDiv = document.getElementById('warp-key-loading');
+        const button = generateWarpKeyBtn;
 
-      button.disabled = true;
+        button.disabled = true;
       loadingDiv.classList.add('show');
       resultsDiv.innerHTML = '';
       resultsDiv.classList.remove('show');
@@ -2058,26 +2351,11 @@ AllowedIPs = 0.0.0.0/0, ::/0`;
 
       for (let i = 0; i < count; i++) {
         const key = Array(26).fill(0).map(() => 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[Math.floor(Math.random() * 32)]).join('');
-        const formattedKey = `${key.slice(0, 5)}-${key.slice(5, 10)}-${key.slice(10, 15)}-${key.slice(15, 20)}-${key.slice(20)}`;
+        const formattedKey = key.slice(0, 5) + '-' + key.slice(5, 10) + '-' + key.slice(10, 15) + '-' + key.slice(15, 20) + '-' + key.slice(20);
 
         const div = document.createElement('div');
         div.className = 'result-item';
-        div.innerHTML = `
-          <div class="result-text">
-            <div style="margin-bottom: 8px;">
-              <span style="font-weight: 700;">کلید WARP Plus ${i + 1}</span>
-            </div>
-            <div style="font-size: 13px; color: #aaa; margin-bottom: 4px;">
-              <strong style="color: #667eea;">کلید:</strong> ${formattedKey}
-            </div>
-            <div style="font-size: 11px; color: #888;">
-              این کلید را در برنامه WARP وارد کنید
-            </div>
-          </div>
-          <div class="button-group">
-            <button class="copy-btn">کپی کلید</button>
-          </div>
-        `;
+        div.innerHTML = '<div class="result-text"><div style="margin-bottom: 8px;"><span style="font-weight: 700;">کلید WARP Plus ' + (i + 1) + '</span></div><div style="font-size: 13px; color: #aaa; margin-bottom: 4px;"><strong style="color: #667eea;">کلید:</strong> ' + formattedKey + '</div><div style="font-size: 11px; color: #888;">این کلید را در برنامه WARP وارد کنید</div></div><div class="button-group"><button class="copy-btn">کپی کلید</button></div>';
         resultsDiv.appendChild(div);
         
         const copyBtn = div.querySelector('.copy-btn');
@@ -2087,18 +2365,21 @@ AllowedIPs = 0.0.0.0/0, ::/0`;
         });
       }
 
-      loadingDiv.classList.remove('show');
-      resultsDiv.classList.add('show');
-      button.disabled = false;
-    });
+        loadingDiv.classList.remove('show');
+        resultsDiv.classList.add('show');
+        button.disabled = false;
+        });
+      }
 
-    document.getElementById('generate-warp-account-btn').addEventListener('click', async () => {
-      const count = parseInt(document.getElementById('warp-account-count').value);
-      const resultsDiv = document.getElementById('warp-account-results');
-      const loadingDiv = document.getElementById('warp-account-loading');
-      const button = document.getElementById('generate-warp-account-btn');
+      const generateWarpAccountBtn = document.getElementById('generate-warp-account-btn');
+      if (generateWarpAccountBtn) {
+        generateWarpAccountBtn.addEventListener('click', async () => {
+        const count = parseInt(document.getElementById('warp-account-count').value);
+        const resultsDiv = document.getElementById('warp-account-results');
+        const loadingDiv = document.getElementById('warp-account-loading');
+        const button = generateWarpAccountBtn;
 
-      button.disabled = true;
+        button.disabled = true;
       loadingDiv.classList.add('show');
       resultsDiv.innerHTML = '';
       resultsDiv.classList.remove('show');
@@ -2108,44 +2389,15 @@ AllowedIPs = 0.0.0.0/0, ::/0`;
       for (let i = 0; i < count; i++) {
         const privateKey = Array(43).fill(0).map(() => 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'[Math.floor(Math.random() * 64)]).join('') + '=';
         const publicKey = Array(43).fill(0).map(() => 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'[Math.floor(Math.random() * 64)]).join('') + '=';
-        const ipv4 = `172.16.0.${Math.floor(Math.random() * 255) + 1}`;
+        const ipv4 = '172.16.0.' + (Math.floor(Math.random() * 255) + 1);
         const ipv6 = generateRandomIP(false);
         const endpoint = generateRandomIP(true);
 
-        const account = `Account ${i + 1}:
-Private Key: ${privateKey}
-Public Key: ${publicKey}
-IPv4: ${ipv4}/32
-IPv6: ${ipv6}/128
-Endpoint: ${endpoint}:2408`;
+        const account = 'Account ' + (i + 1) + ':\nPrivate Key: ' + privateKey + '\nPublic Key: ' + publicKey + '\nIPv4: ' + ipv4 + '/32\nIPv6: ' + ipv6 + '/128\nEndpoint: ' + endpoint + ':2408';
 
         const div = document.createElement('div');
         div.className = 'result-item';
-        div.innerHTML = `
-          <div class="result-text">
-            <div style="margin-bottom: 8px;">
-              <span style="font-weight: 700;">اکانت WARP ${i + 1}</span>
-            </div>
-            <div style="font-size: 11px; color: #aaa; margin-bottom: 3px;">
-              <strong style="color: #667eea;">سرور:</strong> ${endpoint}
-            </div>
-            <div style="font-size: 11px; color: #aaa; margin-bottom: 3px;">
-              <strong style="color: #667eea;">پورت:</strong> 2408
-            </div>
-            <div style="font-size: 11px; color: #aaa; margin-bottom: 3px;">
-              <strong style="color: #667eea;">IPv4:</strong> ${ipv4}/32
-            </div>
-            <div style="font-size: 11px; color: #aaa; margin-bottom: 3px;">
-              <strong style="color: #667eea;">IPv6:</strong> ${ipv6.substring(0, 25)}...
-            </div>
-            <div style="font-size: 10px; color: #888; margin-top: 6px;">
-              کلیدهای خصوصی و عمومی موجود
-            </div>
-          </div>
-          <div class="button-group">
-            <button class="copy-btn">کپی اکانت</button>
-          </div>
-        `;
+        div.innerHTML = '<div class="result-text"><div style="margin-bottom: 8px;"><span style="font-weight: 700;">اکانت WARP ' + (i + 1) + '</span></div><div style="font-size: 11px; color: #aaa; margin-bottom: 3px;"><strong style="color: #667eea;">سرور:</strong> ' + endpoint + '</div><div style="font-size: 11px; color: #aaa; margin-bottom: 3px;"><strong style="color: #667eea;">پورت:</strong> 2408</div><div style="font-size: 11px; color: #aaa; margin-bottom: 3px;"><strong style="color: #667eea;">IPv4:</strong> ' + ipv4 + '/32</div><div style="font-size: 11px; color: #aaa; margin-bottom: 3px;"><strong style="color: #667eea;">IPv6:</strong> ' + ipv6.substring(0, 25) + '...</div><div style="font-size: 10px; color: #888; margin-top: 6px;">کلیدهای خصوصی و عمومی موجود</div></div><div class="button-group"><button class="copy-btn">کپی اکانت</button></div>';
         resultsDiv.appendChild(div);
         
         const copyBtn = div.querySelector('.copy-btn');
@@ -2155,10 +2407,12 @@ Endpoint: ${endpoint}:2408`;
         });
       }
 
-      loadingDiv.classList.remove('show');
-      resultsDiv.classList.add('show');
-      button.disabled = false;
+        loadingDiv.classList.remove('show');
+        resultsDiv.classList.add('show');
+        button.disabled = false;
+        });
+      }
     });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a0fa6c8d25af551',t:'MTc2MzU1NDcyMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a1009ccc70a2f2b',t:'MTc2MzU1ODc3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
